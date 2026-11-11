@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ку</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      background: var(--tg-theme-bg-color, #ffffff);
+    }
+
+    button {
+      min-width: 130px;
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--tg-theme-button-color, #2481cc);
+      color: var(--tg-theme-button-text-color, #ffffff);
+      font: 600 20px system-ui, sans-serif;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body>
+  <button id="ku" type="button">ку</button>
+
+  <script>
+    window.Telegram?.WebApp?.ready();
+
+    const button = document.getElementById('ku');
+    let resetTimer;
+
+    button.addEventListener('click', () => {
+      button.textContent = 'Нажато!';
+      clearTimeout(resetTimer);
+
+      resetTimer = setTimeout(() => {
+        button.textContent = 'ку';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
